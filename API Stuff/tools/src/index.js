@@ -91,7 +91,7 @@ function MerakiDashboard(apiKey) {
     latencyHistory: (network_id, client_id_or_mac_or_ip, params) => rest.get(`/networks/${network_id}/clients/${client_id_or_mac_or_ip}/latencyHistory`, params),
     securityEvents: (network_id, client_id, params) => rest.get(`/networks/${network_id}/clients/${client_id}/securityEvents`, params),
     getPolicy: (network_id, client_mac, timespan) => rest.get(`/networks/${network_id}/clients/${client_mac}/policy`, ensureValueVerbose(timespan, { timespan }, {})),
-    updatePolicy: (network_id, client_mac, params) => rest.put(`/networks/${network_id}/clients/${client_mac}/policy?timespan=2592000`, params),
+    updatePolicy: (network_id, client_mac, params) => rest.put(`/networks/${network_id}/clients/${client_mac}/policy`, params),
     getSplashAuth: (network_id, client_mac) => rest.get(`/networks/${network_id}/clients/${client_mac}/splashAuthorizationStatus`),
     updateSplashAuth: (network_id, client_mac, params) => rest.put(`/networks/${network_id}/clients/${client_mac}/splashAuthorizationStatus`, params)
   };

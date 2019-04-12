@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/tejashah88/node-meraki-dashboard#readme",
   "dependencies": {
+    "ajax": "0.0.4",
     "axios": "^0.18.0",
     "json-bigint": "^0.3.0"
   },
