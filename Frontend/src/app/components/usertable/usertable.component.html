@@ -2,9 +2,10 @@
  <img class="logo" src="assets/cisco-meraki-logo.png" width="200px">
 </div>
 <div>
+  
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef> Internal ID </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> id </mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.id}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="mac">

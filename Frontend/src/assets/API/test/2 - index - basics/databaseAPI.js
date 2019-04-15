@@ -18,9 +18,12 @@ module.exports = {
       }
       for(var x = 0; x < devices.length; x++){
         dashboard.clients.list(devices[x], "86400").then(function(clients) {
+          return clients;
+          /*
           var arrayLength1 = clients.length;
           for(var i = 0; i<arrayLength1; i++){ //this is taking the clients attached to each device
             clients.push(clients[i]);
+            
             console.log(clients[i].id);
             console.log("Description: "+clients[i].description);
             console.log("MAC Address: "+clients[i].mac);
@@ -31,7 +34,7 @@ module.exports = {
             console.log("-----------------");
             //console.log(result[i].serial) // "Some User token"
           }
-          return clients;
+          return clients;*/
         })  .catch(function(e){
           //console.log("Error: " + e);
         });
