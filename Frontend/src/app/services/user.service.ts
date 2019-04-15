@@ -8,7 +8,7 @@ import { User } from '../models/user.model';
 })
 export class UserService {
 
-  private serviceUrl = 'https://jsonplaceholder.typicode.com/users';
+  private serviceUrl = 'assets/sampleData';
 
   constructor(private http: HttpClient) { }
 

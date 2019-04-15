@@ -12,7 +12,7 @@ import { User } from '../../models/user.model';
 export class UsertableComponent implements OnInit {
 
   dataSource = new UserDataSource(this.userService);
-  displayedColumns = ['name', 'email', 'phone', 'company'];
+  displayedColumns = ['id', 'mac', 'mdnsName', 'dhcpHostname', 'Bytes Sent', 'Bytes Received'];
 
   constructor(private userService: UserService) { }
 

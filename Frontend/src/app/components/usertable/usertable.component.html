@@ -1,23 +1,33 @@
+<div id="Header">
+ <img class="logo" src="assets/cisco-meraki-logo.png" width="200px">
+</div>
 <div>
   <mat-table [dataSource]="dataSource">
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let user"> {{user.name}} </mat-cell>
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> Internal ID </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.id}} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef> E-Mail </mat-header-cell>
-      <mat-cell *matCellDef="let user"> {{user.email}} </mat-cell>
+    <ng-container matColumnDef="mac">
+      <mat-header-cell *matHeaderCellDef> mac </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.mac}} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="phone">
-      <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
-      <mat-cell *matCellDef="let user"> {{user.phone}} </mat-cell>
+    <ng-container matColumnDef="mdnsName">
+      <mat-header-cell *matHeaderCellDef> mdnsName </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.mdnsName}} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="company">
-      <mat-header-cell *matHeaderCellDef> Company </mat-header-cell>
-      <mat-cell *matCellDef="let user"> {{user.company.name}} </mat-cell>
+    <ng-container matColumnDef="dhcpHostname">
+      <mat-header-cell *matHeaderCellDef> dhcpHostname </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.dhcpHostname}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Bytes Sent">
+      <mat-header-cell *matHeaderCellDef> Bytes Sent </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.usage.sent}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Bytes Received">
+      <mat-header-cell *matHeaderCellDef> Bytes Received </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.usage.recv}} </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-
   </mat-table>
 </div>

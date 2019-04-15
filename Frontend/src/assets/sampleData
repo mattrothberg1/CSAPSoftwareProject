@@ -1,0 +1,702 @@
+[
+    {
+        "id": "k0016f7",
+        "mac": "18:b4:30:d1:2e:03",
+        "description": "09AA01AC34170CCJ",
+        "mdnsName": null,
+        "dhcpHostname": "09AA01AC34170CCJ",
+        "ip": "192.168.1.253",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 984,
+            "recv": 1502
+        }
+    },
+    {
+        "id": "k0bf669",
+        "mac": "00:0e:58:36:83:f8",
+        "description": "sonos000E583683F8",
+        "mdnsName": "sonos000E583683F8.local",
+        "dhcpHostname": "SonosZP",
+        "ip": "192.168.1.164",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 223.8648755664614,
+            "recv": 33040.00007477491
+        }
+    },
+    {
+        "id": "k7c0e90",
+        "mac": "00:0e:58:36:84:84",
+        "description": "sonos000E58368484",
+        "mdnsName": "sonos000E58368484.local",
+        "dhcpHostname": "SonosZP",
+        "ip": "192.168.1.163",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 192.52632722941564,
+            "recv": 32704.10131923877
+        }
+    },
+    {
+        "id": "k7db067",
+        "mac": "b8:e9:37:9b:cb:fe",
+        "description": "sonosB8E9379BCBFE",
+        "mdnsName": "sonosB8E9379BCBFE.local",
+        "dhcpHostname": "SonosZP",
+        "ip": "192.168.1.62",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 269,
+            "recv": 31601.456701854073
+        }
+    },
+    {
+        "id": "k81b2df",
+        "mac": "b8:e9:37:9d:f8:ca",
+        "description": "sonosB8E9379DF8CA",
+        "mdnsName": "sonosB8E9379DF8CA.local",
+        "dhcpHostname": "SonosZP",
+        "ip": "192.168.1.47",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 490,
+            "recv": 32317.525481780463
+        }
+    },
+    {
+        "id": "k8bd50a",
+        "mac": "78:96:84:c6:90:f7",
+        "description": "gym",
+        "mdnsName": null,
+        "dhcpHostname": "gym",
+        "ip": "192.168.1.101",
+        "vlan": 1,
+        "switchport": "1",
+        "usage": {
+            "sent": 159,
+            "recv": 14336.96350318361
+        }
+    },
+    {
+        "id": "k8b5783",
+        "mac": "b8:3e:59:15:a1:c5",
+        "description": "c6fca65a-7de2-5daf-ad5c-2d2c4d6-0",
+        "mdnsName": "c6fca65a-7de2-5daf-ad5c-2d2c4d6-0.local",
+        "dhcpHostname": "Matt's roku",
+        "ip": "192.168.1.57",
+        "vlan": 1,
+        "switchport": "8",
+        "usage": {
+            "sent": 19146.232374741237,
+            "recv": 15054.292214026429
+        }
+    },
+    {
+        "id": "k8dfd94",
+        "mac": "00:0e:58:36:83:34",
+        "description": "sonos000E58368334",
+        "mdnsName": "sonos000E58368334.local",
+        "dhcpHostname": "SonosZP",
+        "ip": "192.168.1.206",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 445.9433567710818,
+            "recv": 32839.006280221874
+        }
+    },
+    {
+        "id": "k942774",
+        "mac": "f0:27:2d:99:a7:92",
+        "description": "dp-546403KT",
+        "mdnsName": "dp-546403KT.local",
+        "dhcpHostname": null,
+        "ip": "192.168.1.200",
+        "vlan": 1,
+        "switchport": "6",
+        "usage": {
+            "sent": 2363.3238026235604,
+            "recv": 3798.1246163866176
+        }
+    },
+    {
+        "id": "k961b68",
+        "mac": "18:b4:30:d1:1e:ee",
+        "description": "09AA01AC34170CAA",
+        "mdnsName": null,
+        "dhcpHostname": "09AA01AC34170CAA",
+        "ip": "192.168.1.77",
+        "vlan": 1,
+        "switchport": "2",
+        "usage": {
+            "sent": 917.7297679402362,
+            "recv": 890.5946519103543
+        }
+    },
+    {
+        "id": "ka2d010",
+        "mac": "00:0e:58:36:83:18",
+        "description": "sonos000E58368318",
+        "mdnsName": "sonos000E58368318.local",
+        "dhcpHostname": "SonosZP",
+        "ip": "192.168.1.178",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 560.7297679402362,
+            "recv": 33330.22665759139
+        }
+    },
+    {
+        "id": "ka6c15b",
+        "mac": "ec:8e:b5:16:5b:0d",
+        "description": "HPEC8EB5165B0C",
+        "mdnsName": "HPEC8EB5165B0C.local",
+        "dhcpHostname": "HP165B0C",
+        "ip": "192.168.1.214",
+        "vlan": 1,
+        "switchport": "8",
+        "usage": {
+            "sent": 8916.19433808804,
+            "recv": 1170.458301426412
+        }
+    },
+    {
+        "id": "k10538d",
+        "mac": "b8:e9:37:ab:8a:d0",
+        "description": "sonosB8E937AB8AD0",
+        "mdnsName": "sonosB8E937AB8AD0.local",
+        "dhcpHostname": "SonosZP",
+        "ip": "192.168.1.55",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 176.2419126824971,
+            "recv": 31320.966558568423
+        }
+    },
+    {
+        "id": "kaaa5de",
+        "mac": "e0:cb:bc:97:b2:20",
+        "description": "office-ap-e0cbbc97b220",
+        "mdnsName": null,
+        "dhcpHostname": "office-ap-e0cbbc97b220",
+        "ip": "192.168.1.56",
+        "vlan": 1,
+        "switchport": "8",
+        "usage": {
+            "sent": 3830.9359297929395,
+            "recv": 5915.205544625674
+        }
+    },
+    {
+        "id": "k118ebd",
+        "mac": "ac:87:a3:22:8b:8a",
+        "description": "KitcheniMac",
+        "mdnsName": "KitcheniMac.local",
+        "dhcpHostname": "KitcheniMac",
+        "ip": "192.168.1.181",
+        "vlan": 1,
+        "switchport": "6",
+        "usage": {
+            "sent": 275893.5189961037,
+            "recv": 49484.01546305762
+        }
+    },
+    {
+        "id": "kb029af",
+        "mac": "18:b4:30:d1:22:1e",
+        "description": "09AA01AC34170C54",
+        "mdnsName": null,
+        "dhcpHostname": "09AA01AC34170C54",
+        "ip": "192.168.1.65",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 602,
+            "recv": 1244
+        }
+    },
+    {
+        "id": "kb117b0",
+        "mac": "64:55:b1:e8:24:9c",
+        "description": "Kitchen",
+        "mdnsName": null,
+        "dhcpHostname": "Kitchen",
+        "ip": "192.168.1.109",
+        "vlan": 1,
+        "switchport": "1",
+        "usage": {
+            "sent": 48.78360049494092,
+            "recv": 8708.050341281758
+        }
+    },
+    {
+        "id": "kb370ea",
+        "mac": "00:0e:58:36:83:84",
+        "description": "sonos000E58368384",
+        "mdnsName": "sonos000E58368384.local",
+        "dhcpHostname": "SonosZP",
+        "ip": "192.168.1.19",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 278.24191044530465,
+            "recv": 33526.575208981005
+        }
+    },
+    {
+        "id": "kb5be14",
+        "mac": "e0:cb:bc:97:b8:40",
+        "description": "basement-e0cbbc97b840",
+        "mdnsName": null,
+        "dhcpHostname": "basement-e0cbbc97b840",
+        "ip": "192.168.1.183",
+        "vlan": 1,
+        "switchport": "2",
+        "usage": {
+            "sent": 4086.4612878037956,
+            "recv": 5934.953743469161
+        }
+    },
+    {
+        "id": "k12e227",
+        "mac": "00:23:62:00:58:ec",
+        "description": "DHCPCLIENT",
+        "mdnsName": null,
+        "dhcpHostname": "DHCPCLIENT",
+        "ip": "192.168.1.247",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 211,
+            "recv": 2033
+        }
+    },
+    {
+        "id": "k125367",
+        "mac": "64:16:66:0b:01:12",
+        "description": "09AA01AC50170U9W",
+        "mdnsName": null,
+        "dhcpHostname": "09AA01AC50170U9W",
+        "ip": "192.168.1.14",
+        "vlan": 1,
+        "switchport": "2",
+        "usage": {
+            "sent": 975,
+            "recv": 1214
+        }
+    },
+    {
+        "id": "kc8e6aa",
+        "mac": "e0:cb:bc:47:a1:0c",
+        "description": "kitchen-e0cbbc47a10c",
+        "mdnsName": null,
+        "dhcpHostname": "kitchen-e0cbbc47a10c",
+        "ip": "192.168.1.79",
+        "vlan": 1,
+        "switchport": "6",
+        "usage": {
+            "sent": 13447.553932576146,
+            "recv": 17759.284947575325
+        }
+    },
+    {
+        "id": "kcd476d",
+        "mac": "ac:bc:32:67:27:1f",
+        "description": "Apple-TV-3",
+        "mdnsName": "Apple-TV-3.local",
+        "dhcpHostname": "Apple-TV-3",
+        "ip": "192.168.1.95",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 1154,
+            "recv": 14228.337432710538
+        }
+    },
+    {
+        "id": "kd136d2",
+        "mac": "64:55:b1:e8:25:6d",
+        "description": "matt",
+        "mdnsName": null,
+        "dhcpHostname": "matt",
+        "ip": "192.168.1.104",
+        "vlan": 1,
+        "switchport": "1",
+        "usage": {
+            "sent": 36.56720098988184,
+            "recv": 8796.068434150922
+        }
+    },
+    {
+        "id": "kd867ad",
+        "mac": "00:04:20:ed:41:73",
+        "description": "HarmonyHub",
+        "mdnsName": null,
+        "dhcpHostname": "HarmonyHub",
+        "ip": "192.168.1.75",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 1372.6738079408783,
+            "recv": 1626.1066069509961
+        }
+    },
+    {
+        "id": "kddebf9",
+        "mac": "64:55:b1:e8:25:ab",
+        "description": "Living-Room",
+        "mdnsName": null,
+        "dhcpHostname": "Living-Room",
+        "ip": "192.168.1.110",
+        "vlan": 1,
+        "switchport": "1",
+        "usage": {
+            "sent": 17.56720098988184,
+            "recv": 8765.778725862616
+        }
+    },
+    {
+        "id": "kef8669",
+        "mac": "64:55:b1:e8:25:9b",
+        "description": "kitchen2",
+        "mdnsName": null,
+        "dhcpHostname": "kitchen2",
+        "ip": "192.168.1.102",
+        "vlan": 1,
+        "switchport": "1",
+        "usage": {
+            "sent": 29,
+            "recv": 9228.228956718502
+        }
+    },
+    {
+        "id": "kefc951",
+        "mac": "f8:a0:97:15:d6:61",
+        "description": "Basement",
+        "mdnsName": null,
+        "dhcpHostname": "Basement",
+        "ip": "192.168.1.112",
+        "vlan": 1,
+        "switchport": "1",
+        "usage": {
+            "sent": 51,
+            "recv": 8875.279191521551
+        }
+    },
+    {
+        "id": "k189e22",
+        "mac": "d0:4f:7e:24:5e:b6",
+        "description": "Den",
+        "mdnsName": "Den.local",
+        "dhcpHostname": "Den",
+        "ip": "192.168.1.7",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 705,
+            "recv": 2799
+        }
+    },
+    {
+        "id": "kf74cbe",
+        "mac": "08:66:98:a1:8e:d6",
+        "description": "Apple-TV-2",
+        "mdnsName": "Apple-TV-2.local",
+        "dhcpHostname": "Apple-TV-2",
+        "ip": "192.168.1.251",
+        "vlan": 1,
+        "switchport": "6",
+        "usage": {
+            "sent": 2367.526325942561,
+            "recv": 3643.78977827683
+        }
+    },
+    {
+        "id": "kfe5d19",
+        "mac": "64:55:b1:e8:25:8b",
+        "description": "gym",
+        "mdnsName": null,
+        "dhcpHostname": "gym",
+        "ip": "192.168.1.100",
+        "vlan": 1,
+        "switchport": "1",
+        "usage": {
+            "sent": 41,
+            "recv": 8955.190101050102
+        }
+    },
+    {
+        "id": "k1e1d8a",
+        "mac": "00:0e:58:36:83:26",
+        "description": "sonos000E58368326",
+        "mdnsName": "sonos000E58368326.local",
+        "dhcpHostname": "SonosZP",
+        "ip": "192.168.1.192",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 220.8648755664614,
+            "recv": 32729.876933434647
+        }
+    },
+    {
+        "id": "k03863c",
+        "mac": "38:53:9c:95:1f:6d",
+        "description": "loris-iPhone",
+        "mdnsName": "loris-iPhone.local",
+        "dhcpHostname": "loris-iPhone",
+        "ip": "192.168.1.175",
+        "vlan": 1,
+        "switchport": "6",
+        "usage": {
+            "sent": 758536.3295253003,
+            "recv": 166749.92058836797
+        }
+    },
+    {
+        "id": "k039279",
+        "mac": "98:5f:d3:96:6e:c9",
+        "description": "XboxOne",
+        "mdnsName": "XboxOne.local",
+        "dhcpHostname": "XboxOne",
+        "ip": "192.168.1.155",
+        "vlan": 1,
+        "switchport": "6",
+        "usage": {
+            "sent": 581,
+            "recv": 1033.3044936710855
+        }
+    },
+    {
+        "id": "k20eb7e",
+        "mac": "00:0e:58:36:83:1a",
+        "description": "sonos000E5836831A",
+        "mdnsName": "sonos000E5836831A.local",
+        "dhcpHostname": "SonosZP",
+        "ip": "192.168.1.27",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 147.8648755664614,
+            "recv": 32981.77706355287
+        }
+    },
+    {
+        "id": "k271ea8",
+        "mac": "90:cd:b6:28:29:83",
+        "description": "Android",
+        "mdnsName": "Android.local",
+        "dhcpHostname": "android-8376138dd5bd9309",
+        "ip": "192.168.1.78",
+        "vlan": 1,
+        "switchport": "6",
+        "usage": {
+            "sent": 13308.95147536022,
+            "recv": 2250.9477802589636
+        }
+    },
+    {
+        "id": "k04a624",
+        "mac": "d0:03:4b:18:b3:30",
+        "description": "gym",
+        "mdnsName": "gym.local",
+        "dhcpHostname": "gym",
+        "ip": "192.168.1.223",
+        "vlan": 1,
+        "switchport": "8",
+        "usage": {
+            "sent": 23507.72915154613,
+            "recv": 2543.638868728171
+        }
+    },
+    {
+        "id": "k333e7c",
+        "mac": "b8:09:8a:be:39:83",
+        "description": "KitcheniMac",
+        "mdnsName": "KitcheniMac.local",
+        "dhcpHostname": "KitcheniMac",
+        "ip": "192.168.1.11",
+        "vlan": 1,
+        "switchport": "2",
+        "usage": {
+            "sent": 398.0137780049396,
+            "recv": 571.4720810971959
+        }
+    },
+    {
+        "id": "k392706",
+        "mac": "6c:40:08:b9:75:18",
+        "description": "jareds-MacBook-Pro-2",
+        "mdnsName": "jareds-MacBook-Pro-2.local",
+        "dhcpHostname": "jareds-MBP-2",
+        "ip": "192.168.1.233",
+        "vlan": 1,
+        "switchport": "6",
+        "usage": {
+            "sent": 5990104.952965322,
+            "recv": 15832.511237754465
+        }
+    },
+    {
+        "id": "k3dab6a",
+        "mac": "00:0e:58:36:83:06",
+        "description": "sonos000E58368306",
+        "mdnsName": "sonos000E58368306.local",
+        "dhcpHostname": "SonosZP",
+        "ip": "192.168.1.160",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 692.3692194478883,
+            "recv": 34015.70145804082
+        }
+    },
+    {
+        "id": "k06e5be",
+        "mac": "48:5d:36:25:d1:0e",
+        "description": null,
+        "mdnsName": null,
+        "dhcpHostname": null,
+        "ip": "192.168.1.1",
+        "vlan": 1,
+        "switchport": "1",
+        "usage": {
+            "sent": 753815.5975754354,
+            "recv": 9201018.0281741
+        }
+    },
+    {
+        "id": "k44bf8a",
+        "mac": "5c:aa:fd:1f:cb:49",
+        "description": "sonos5CAAFD1FCB49",
+        "mdnsName": "sonos5CAAFD1FCB49.local",
+        "dhcpHostname": "SonosZP",
+        "ip": "192.168.1.45",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 258.86487556646136,
+            "recv": 32511.38287244873
+        }
+    },
+    {
+        "id": "k468eb8",
+        "mac": "00:0e:58:36:84:bc",
+        "description": "sonos000E583684BC",
+        "mdnsName": "sonos000E583684BC.local",
+        "dhcpHostname": "SonosZP",
+        "ip": "192.168.1.162",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 462.72975113292284,
+            "recv": 32225.122819898912
+        }
+    },
+    {
+        "id": "k4a9385",
+        "mac": "ac:04:0b:05:0d:7b",
+        "description": "android-257812d45e685291",
+        "mdnsName": null,
+        "dhcpHostname": "android-257812d45e685291",
+        "ip": "192.168.1.184",
+        "vlan": 1,
+        "switchport": "8",
+        "usage": {
+            "sent": 1826297.0000000002,
+            "recv": 17375.999999999996
+        }
+    },
+    {
+        "id": "k072b42",
+        "mac": "00:0e:58:36:83:3e",
+        "description": "sonos000E5836833E",
+        "mdnsName": "sonos000E5836833E.local",
+        "dhcpHostname": "SonosZP",
+        "ip": "192.168.1.216",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 533,
+            "recv": 32744.646322233344
+        }
+    },
+    {
+        "id": "k573e05",
+        "mac": "64:a5:c3:5e:a6:c4",
+        "description": "Matts-AirPort-Extreme",
+        "mdnsName": "Matts-AirPort-Extreme.local",
+        "dhcpHostname": "matts-airport-extreme",
+        "ip": "192.168.1.190",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 158,
+            "recv": 1689
+        }
+    },
+    {
+        "id": "k58454a",
+        "mac": "e0:cb:bc:31:ee:b4",
+        "description": "master-bedroom-e0cbbc31eeb4",
+        "mdnsName": null,
+        "dhcpHostname": "master-bedroom-e0cbbc31eeb4",
+        "ip": "192.168.1.204",
+        "vlan": 1,
+        "switchport": "3",
+        "usage": {
+            "sent": 4075.789575711008,
+            "recv": 5979.429521637577
+        }
+    },
+    {
+        "id": "k598ec3",
+        "mac": "78:96:84:fc:8d:21",
+        "description": "Master-Bedroom",
+        "mdnsName": null,
+        "dhcpHostname": "Master-Bedroom",
+        "ip": "192.168.1.103",
+        "vlan": 1,
+        "switchport": "1",
+        "usage": {
+            "sent": 326,
+            "recv": 14274.950262770728
+        }
+    },
+    {
+        "id": "k5b1e64",
+        "mac": "ac:04:0b:03:79:e4",
+        "description": "android-acdef02d87557211",
+        "mdnsName": null,
+        "dhcpHostname": "android-acdef02d87557211",
+        "ip": "192.168.1.227",
+        "vlan": 1,
+        "switchport": "8",
+        "usage": {
+            "sent": 1631,
+            "recv": 2833
+        }
+    },
+    {
+        "id": "k09a746",
+        "mac": "d4:a3:3d:ef:7b:42",
+        "description": "Jared-Rothbergs-iPhone",
+        "mdnsName": "Jared-Rothbergs-iPhone.local",
+        "dhcpHostname": "JaredRogsiPhone",
+        "ip": "192.168.1.86",
+        "vlan": 1,
+        "switchport": "6",
+        "usage": {
+            "sent": 262328,
+            "recv": 3240
+        }
+    }
+]
