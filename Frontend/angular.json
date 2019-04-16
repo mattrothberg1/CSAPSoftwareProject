@@ -82,7 +82,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "assets/API/test/index/databaseAPI.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
