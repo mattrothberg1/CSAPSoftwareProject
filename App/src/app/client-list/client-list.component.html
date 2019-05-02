@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<div class="container custom-container-2">
+    
+  <h3></h3>
+  <body ng-controller="MainCtrl"> 
+  <div >
+    <h3 class="mb-3 text-center">Client List</h3>
+
+    <div class="col-md-12">
+      
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">MAC</th>
+            <th scope="col">mdnsName</th>
+            <th scope="col">dhcpHostname</th>
+            <th scope="col">ip</th>
+            <th scope="col">vlan</th>
+            <th scope="col">Policy</th>
+            <th scope="col">actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr *ngFor="let client of Client; let i = index" [class.active]="i == selectedRow">
+            <td>{{client.id}}</td>
+            <td>{{client.mac}}</td>
+            <td>{{client.mdnsName}}</td>
+            <td>{{client.dhcpHostname}}</td>
+            <td>{{client.ip}}</td>
+            <td>{{client.vlan}}</td>
+            <td type="policy" id=client.id>
+              Approved
+            </td>
+            <td>
+                <button  ><img src="assets/checkmark.png" alt="Approve" width="20px"></button>
+                <button (click)="buttonBlock(index)"><img src="assets/xMark.png" alt="Reject" width="20px"></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+     
+    </div>
+
+  </div>
+  </body>
+</div>
+</html>
+
