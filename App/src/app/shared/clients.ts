@@ -6,5 +6,5 @@ export class Clients {
     dhcpHostname: string;
     ip: string;
     vlan: number;
-    
+    policy: string; 
 }

@@ -31,13 +31,18 @@ export class ClientListComponent implements OnInit {
   }
   
   testAPI(){
-    return "HELLO";
+    console.log("CLIENTS: ");
+    console.log(this.Client);
+    this.Client[48] = {id: "k0094kd", mac: "b8:c1:11:01:fb:d0", mdnsName: "Masons-Virus", dhcpHostname: "MasonsVirus", ip: "192.168.1.243", vlan: "1", policy: "Blocked"};
   }
 
   // Get employees list
   loadClients() {
     return this.restApi.getClients().subscribe((data: {}) => {
-      this.Client = data;
+      this.Client = data; 
+      for(var i = 0; i<this.Client.length; i++){
+        this.Client[i].policy = "Allowed";
+      }
       console.log(this.Client);
     })
   }
