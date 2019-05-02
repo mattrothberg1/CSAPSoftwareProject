@@ -5,7 +5,7 @@
   <h3></h3>
   <body ng-controller="MainCtrl"> 
   <div >
-    <h3 class="mb-3 text-center">Client Lists</h3>
+    <h3 (click)="testAPI()" class="mb-3 text-center">Client List</h3>
 
     <div class="col-md-12">
       
@@ -32,12 +32,11 @@
             <td>{{client.ip}}</td>
             <td>{{client.vlan}}</td>
             <td type="policy" id=client.id>
-              
               {{client.policy}}
             </td>
             <td>
-                <button  ><img src="assets/checkmark.png" alt="Approve" width="20px"></button>
-                <button (click)="testAPI()"><img src="assets/xMark.png" alt="Reject" width="20px"></button>
+                <button  (click)="finalAllowClient(i)"><img src="assets/checkmark.png" alt="Approve" width="20px"></button>
+                <button (click)="finalBlockClient(i)"><img src="assets/xMark.png" alt="Reject" width="20px"></button>
             </td>
           </tr>
         </tbody>

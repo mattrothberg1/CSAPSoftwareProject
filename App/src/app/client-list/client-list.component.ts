@@ -22,8 +22,13 @@ export class ClientListComponent implements OnInit {
     
    }
 
+   finalAllowClient(index){
+     this.Client[index].policy = "Allowed";
+   }
   
-
+   finalBlockClient(index){
+     this.Client[index].policy = "Blocked";
+   }
 
   ngOnInit() {
     this.loadClients()
