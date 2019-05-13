@@ -67,7 +67,10 @@ export class RestApiService {
       'accept-encoding': "gzip, deflate",
       'referer': "https://api.meraki.com/api/v0/networks/L_647955396387940893/clients/b8:c1:11:01:fb:d0/policy?timespan=2592000",
       'Connection': "keep-alive",
-      'cache-control': "no-cache"
+      'cache-control': "no-cache", 
+      "Access-Control-Allow-Origin": "*",
+"Access-Control-Allow-Headers": "X-Requested-With",
+"Access-Control-Allow-Methods": "GET, POST, PUT",
     }),
     body: {
       devicePolicy : "Blocked" 
@@ -81,6 +84,14 @@ export class RestApiService {
       retry(1),
       catchError(this.handleError)
     )
+   }
+
+   checkMac(mac : String){
+     let apiURL4 = "http://macvendors.co/api/"+mac;
+     return this.https.get(apiURL4).pipe(
+        retry(1),
+      catchError(this.handleError)
+     )
    }
 
   // Error handling 

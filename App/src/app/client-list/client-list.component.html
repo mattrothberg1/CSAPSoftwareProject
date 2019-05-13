@@ -14,6 +14,7 @@
           <tr>
             <th scope="col">ID</th>
             <th scope="col">MAC</th>
+            <th scope="col">Manufacturer</th>
             <th scope="col">mdnsName</th>
             <th scope="col">dhcpHostname</th>
             <th scope="col">ip</th>
@@ -26,6 +27,7 @@
           <tr *ngFor="let client of Client; let i = index" [class.active]="i == selectedRow">
             <td>{{client.id}}</td>
             <td>{{client.mac}}</td>
+            <td>{{client.manufactuer}}</td>
             <td>{{client.mdnsName}}</td>
             <td>{{client.dhcpHostname}}</td>
             <td>{{client.ip}}</td>
@@ -34,8 +36,8 @@
               {{client.policy}}
             </td>
             <td>
-                <button  (click)="finalAllowClient(i)"><img src="assets/checkmark.png" alt="Approve" width="20px"></button>
-                <button (click)="finalBlockClient(i)"><img src="assets/xMark.png" alt="Reject" width="20px"></button>
+                <button  (click)="lastAllowClient('L_647955396387940893', client.mac, '611a8ceeedb0c36716a5125c46cd7f3ba760d465', block, i); finalAllowClient(i)"><img src="assets/checkmark.png" alt="Approve" width="20px"></button>
+                <button (click)="lastBlockClient('L_647955396387940893', client.mac, '611a8ceeedb0c36716a5125c46cd7f3ba760d465', block, i); finalBlockClient(i)"><img src="assets/xMark.png" alt="Reject" width="20px"></button>
             </td>
           </tr>
         </tbody>

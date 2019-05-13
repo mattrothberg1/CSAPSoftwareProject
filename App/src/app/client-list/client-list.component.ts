@@ -2,7 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from "../shared/rest-api.service";
 import { Clients } from '../shared/clients';
-
+declare const blockClient1: any;
+declare const allowClient1: any;
 @Component({
   selector: 'app-client-list',
   templateUrl: './client-list.component.html',
@@ -35,6 +36,15 @@ export class ClientListComponent implements OnInit {
    
   }
   
+  lastBlockClient(networkID, mac, apiKey, index){
+    blockClient1(networkID, mac, apiKey, 'block');
+
+  }
+  lastAllowClient(networkID, mac, apiKey, index){
+    allowClient1(networkID, mac, apiKey, 'block');
+    
+  }
+
   testAPI(){
     console.log("CLIENTS: ");
     console.log(this.Client);
@@ -43,7 +53,7 @@ export class ClientListComponent implements OnInit {
   testAPI1(){
     console.log("CLIENTS: ");
     console.log(this.Client);
-    this.Client[this.index] = {id: "k0094kk", mac: "b8:c1:12:01:fb:d0", mdnsName: "Matts-Virus", dhcpHostname: "MattsVirus", ip: "192.168.1.244", vlan: "1", policy: "Blocked"};
+    this.Client[this.index] = {id: "k0094kk", mac: "b8:c1:12:01:fb:d0", manufactuer: "Unknown", mdnsName: "Matts-Virus", dhcpHostname: "MattsVirus", ip: "192.168.1.244", vlan: "1", policy: "Blocked"};
   }
   // Get employees list
   loadClients() {
@@ -52,6 +62,8 @@ export class ClientListComponent implements OnInit {
       var i = 0;
       for(i = 0; i<this.Client.length; i++){
         this.Client[i].policy = "Allowed";
+       
+        this.getManufactuer(this.Client[i].mac, i);
         this.index += 1;
       }
       console.log(this.Client);
@@ -75,6 +87,17 @@ export class ClientListComponent implements OnInit {
       console.log(data);
       return data;
     })
+  }
+
+  getManufactuer(mac : String, index : number){
+    let manufactuer = "";
+    return this.restApi.checkMac(mac).subscribe((data: {result : {company : any}}) => {
+      console.log("MANU: ");
+      //console.log(data.result.company);
+      this.Client[index].manufactuer = data.result.company;
+      console.log(this.Client[index].manufactuer);
+    })
+    return manufactuer; 
   }
 
 }

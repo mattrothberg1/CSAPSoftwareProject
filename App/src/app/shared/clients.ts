@@ -7,4 +7,5 @@ export class Clients {
     ip: string;
     vlan: number;
     policy: string; 
+    manufacturer: string; 
 }

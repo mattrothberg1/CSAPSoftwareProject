@@ -1,6 +1,90 @@
 const expect = require('chai').expect;
 const MerakiDashboard = require('../../src/index');
 
+function blockClient1(network_id, clientMAC, apiKey, block) {
+  var data = null;
+
+  var xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
+  
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+      console.log(this.responseText);
+    }
+  });
+  
+  xhr.open("PUT", "https://api.meraki.com/api/v0/networks/L_647955396387940893/clients/" + clientMAC + "/policy?timespan=2592000&devicePolicy=Blocked");
+  xhr.setRequestHeader("X-Cisco-Meraki-API-Key", "611a8ceeedb0c36716a5125c46cd7f3ba760d465");
+  xhr.setRequestHeader("User-Agent", "PostmanRuntime/7.11.0");
+  xhr.setRequestHeader("Accept", "*/*");
+  xhr.setRequestHeader("Cache-Control", "no-cache");
+  xhr.setRequestHeader("Postman-Token", "77b44c5c-2b1c-40d0-9e34-a8850b9a1e96,aff70c95-53d7-4630-8d69-137a2f2e5a19");
+  xhr.setRequestHeader("accept-encoding", "gzip, deflate");
+  xhr.setRequestHeader("content-length", "");
+  xhr.setRequestHeader("referer", "https://api.meraki.com/api/v0/networks/L_647955396387940893/clients/" + clientMAC + "/policy?timespan=2592000&devicePolicy=Blocked");
+  xhr.setRequestHeader("Connection", "keep-alive");
+  xhr.setRequestHeader("cache-control", "no-cache");
+  
+  xhr.send(data);
+}; 
+  
+function allowClient1(network_id, clientMAC, apiKey, block) {
+  var data = null;
+
+  var xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
+  
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+      console.log(this.responseText);
+    }
+  });
+  
+  xhr.open("PUT", "https://api.meraki.com/api/v0/networks/L_647955396387940893/clients/" + clientMAC + "/policy?timespan=2592000&devicePolicy=Normal");
+  xhr.setRequestHeader("X-Cisco-Meraki-API-Key", "611a8ceeedb0c36716a5125c46cd7f3ba760d465");
+  xhr.setRequestHeader("User-Agent", "PostmanRuntime/7.11.0");
+  xhr.setRequestHeader("Accept", "*/*");
+  xhr.setRequestHeader("Cache-Control", "no-cache");
+  xhr.setRequestHeader("Postman-Token", "77b44c5c-2b1c-40d0-9e34-a8850b9a1e96,aff70c95-53d7-4630-8d69-137a2f2e5a19");
+  xhr.setRequestHeader("accept-encoding", "gzip, deflate");
+  xhr.setRequestHeader("content-length", "");
+  xhr.setRequestHeader("referer", "https://api.meraki.com/api/v0/networks/L_647955396387940893/clients/" + clientMAC + "/policy?timespan=2592000&devicePolicy=Normal");
+  xhr.setRequestHeader("Connection", "keep-alive");
+  xhr.setRequestHeader("cache-control", "no-cache");
+  
+  xhr.send(data);
+}; 
+
+function blockClient (network_id, clientMAC, apiKey, test){
+
+  var http = require("https");
+
+  var options = {
+    method: "PUT",
+    hostname : "n67.meraki.com",
+    path : "/api/v0/networks/"+network_id+"/clients/"+clientMAC+"/policy?timespan=2592000&devicePolicy=Blocked",
+    headers: {
+      "X-Cisco-Meraki-API-Key" : apiKey,
+      "cache-control" : "no-cache",
+    }
+  };
+
+  var req = http.request(options, function (res) {
+    var chunks = [];
+
+    res.on("data", function (chunk) {
+      chunks.push(chunk);
+    });
+
+    res.on("end", function () {
+      var body = Buffer.concat(chunks);
+      console.log(body.toString());
+    });
+  });
+
+  req.end();
+}
+
 module.exports = {
   test : function test(text){
     console.log(text);

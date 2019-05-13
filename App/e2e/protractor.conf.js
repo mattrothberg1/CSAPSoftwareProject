@@ -13,7 +13,11 @@ exports.config = {
   },
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
-  framework: 'jasmine',
+  framework: ['jasmine', 'browserify'],
+  preprocessors: {
+    'app/tests/*.js': [ 'browserify' ]
+ },
+ plugins: ['karma-browserify'],
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 30000,
