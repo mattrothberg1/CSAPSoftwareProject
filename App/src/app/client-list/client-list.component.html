@@ -5,7 +5,7 @@
   <h3></h3>
   <body ng-controller="MainCtrl"> 
   <div >
-    <h3 (click)="testAPI()" class="mb-3 text-center">Client List</h3>
+    <h3 (click)="testAPI1()" class="mb-3 text-center">Client List</h3>
 
     <div class="col-md-12">
       
@@ -22,8 +22,7 @@
             <th scope="col">actions</th>
           </tr>
         </thead>
-        <tbody>
-          
+        <tbody>    
           <tr *ngFor="let client of Client; let i = index" [class.active]="i == selectedRow">
             <td>{{client.id}}</td>
             <td>{{client.mac}}</td>
