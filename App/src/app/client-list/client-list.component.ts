@@ -7,6 +7,8 @@ declare const allowClient1: any;
 declare const blockClient: any;
 declare const allowClient: any;
 declare const getPolicy: any; 
+declare const askForAPI: any;
+declare const askForNetworkID: any; 
 @Component({
   selector: 'app-client-list',
   templateUrl: './client-list.component.html',
@@ -20,36 +22,35 @@ export class ClientListComponent implements OnInit {
   Client: any = [];
   selectedRow: string;
   index = 0;
+  apiKey = ""; 
+  networkID = "";
   constructor(
     public restApi: RestApiService
   ) {
     
    }
 
-   finalAllowClient(index){
-     this.Client[index].policy = "Allowed";
-   }
-  
-   finalBlockClient(index){
-     this.Client[index].policy = "Blocked";
-   }
+
 
   ngOnInit() {
-    this.loadClients()
-   
+    this.loadPage(); 
   }
   
-  lastBlockClient(networkID, mac, apiKey, index){
-    blockClient(networkID, mac, apiKey);
-
-  }
-  lastAllowClient(networkID, mac, apiKey, index){
-    allowClient(networkID, mac, apiKey);
-    
+  loadPage(){
+    this.apiKey = askForAPI(); 
+    this.loadClients();
   }
 
-  lastGetClientPolicy(networkID, mac, apiKey, index){
-    this.Client[index].policy = getPolicy(networkID, mac, apiKey); 
+  blockClient(mac, index){
+    blockClient(this.networkID, mac, this.apiKey);
+
+  }
+  allowClient(mac, index){
+    allowClient(this.networkID, mac, this.apiKey);
+  }
+
+  getClientPolicy(networkID, mac, apiKey, index){
+    this.Client[index].policy = getPolicy(this.networkID, mac, this.apiKey); 
   }
 
   testAPI1(){
@@ -59,6 +60,7 @@ export class ClientListComponent implements OnInit {
   }
   // Get employees list
   loadClients() {
+    this.networkID = askForNetworkID();
     return this.restApi.getClients().subscribe((data: {}) => {
       this.Client = data; 
       var i = 0;
@@ -66,30 +68,10 @@ export class ClientListComponent implements OnInit {
         //this.Client[i].policy = "Allowed";
        
         this.getManufactuer(this.Client[i].mac, i);
-        this.lastGetClientPolicy("L_647955396387940893", this.Client[i].mac, "611a8ceeedb0c36716a5125c46cd7f3ba760d465", i);
+        this.getClientPolicy(this.networkID, this.Client[i].mac, this.apiKey, i);
         this.index += 1;
       }
       console.log(this.Client);
-    })
-  }
-
-  getClientPolicy(mac : String) {
-    console.log("getCLIENT");
-    
-    return this.restApi.getClientPolicy(mac).subscribe((data: {}) => {
-      console.log(data);
-      return data;
-    })
-  }
-  
- 
-
-  blockClient(mac : String){
-    console.log("Block Client: " + mac);
-  
-    return this.restApi.blockClient(mac).subscribe((data: {}) => {
-      console.log(data);
-      return data;
     })
   }
 

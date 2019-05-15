@@ -128,3 +128,18 @@ function blockClient(network_id, clientMAC, apiKey) {
     xhr.send(data);
   }; 
 
+  function askForAPI(){
+    var apiKey  = prompt("Please enter your Meraki API Key", "611a8ceeedb0c36716a5125c46cd7f3ba760d465");
+    while(apiKey == null || apiKey == ""){
+      var apiKey  = prompt("Please enter your Meraki API Key", "611a8ceeedb0c36716a5125c46cd7f3ba760d465");
+    }
+    return apiKey; 
+  }
+
+  function askForNetworkID(){
+    var networkID  = prompt("Please enter your Meraki Network ID", "L_647955396387940893");
+    while(networkID == null || networkID == ""){
+      var networkID  = prompt("Please enter your Meraki Network ID", "L_647955396387940893");
+    }
+    return networkID; 
+  }
