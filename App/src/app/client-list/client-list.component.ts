@@ -4,6 +4,9 @@ import { RestApiService } from "../shared/rest-api.service";
 import { Clients } from '../shared/clients';
 declare const blockClient1: any;
 declare const allowClient1: any;
+declare const blockClient: any;
+declare const allowClient: any;
+declare const getPolicy: any; 
 @Component({
   selector: 'app-client-list',
   templateUrl: './client-list.component.html',
@@ -37,19 +40,18 @@ export class ClientListComponent implements OnInit {
   }
   
   lastBlockClient(networkID, mac, apiKey, index){
-    blockClient1(networkID, mac, apiKey, 'block');
+    blockClient(networkID, mac, apiKey);
 
   }
   lastAllowClient(networkID, mac, apiKey, index){
-    allowClient1(networkID, mac, apiKey, 'block');
+    allowClient(networkID, mac, apiKey);
     
   }
 
-  testAPI(){
-    console.log("CLIENTS: ");
-    console.log(this.Client);
-    this.Client[43] = {id: "k0094kd", mac: "b8:c1:11:01:fb:d0", mdnsName: "Masons-Virus", dhcpHostname: "MasonsVirus", ip: "192.168.1.243", vlan: "1", policy: "Blocked"};
+  lastGetClientPolicy(networkID, mac, apiKey, index){
+    this.Client[index].policy = getPolicy(networkID, mac, apiKey); 
   }
+
   testAPI1(){
     console.log("CLIENTS: ");
     console.log(this.Client);
@@ -61,9 +63,10 @@ export class ClientListComponent implements OnInit {
       this.Client = data; 
       var i = 0;
       for(i = 0; i<this.Client.length; i++){
-        this.Client[i].policy = "Allowed";
+        //this.Client[i].policy = "Allowed";
        
         this.getManufactuer(this.Client[i].mac, i);
+        this.lastGetClientPolicy("L_647955396387940893", this.Client[i].mac, "611a8ceeedb0c36716a5125c46cd7f3ba760d465", i);
         this.index += 1;
       }
       console.log(this.Client);
@@ -72,6 +75,7 @@ export class ClientListComponent implements OnInit {
 
   getClientPolicy(mac : String) {
     console.log("getCLIENT");
+    
     return this.restApi.getClientPolicy(mac).subscribe((data: {}) => {
       console.log(data);
       return data;
