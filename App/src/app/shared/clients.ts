@@ -8,4 +8,5 @@ export class Clients {
     vlan: number;
     policy: string; 
     manufacturer: string; 
+    show: boolean;
 }

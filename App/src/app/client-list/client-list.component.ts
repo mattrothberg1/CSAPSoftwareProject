@@ -9,10 +9,14 @@ declare const allowClient: any;
 declare const getPolicy: any; 
 declare const askForAPI: any;
 declare const askForNetworkID: any; 
+
+
+
 @Component({
   selector: 'app-client-list',
   templateUrl: './client-list.component.html',
-  styleUrls: ['./client-list.component.css']
+  styleUrls: ['./client-list.component.css'],
+  
 })
 
 
@@ -36,6 +40,44 @@ export class ClientListComponent implements OnInit {
     this.loadPage(); 
   }
   
+  onSubmit(event: any) {
+    
+    var i = 0;
+    
+    for(i = 0; i<this.Client.length; i++){
+      var clientToString = "";
+      if(this.Client[i].id != null){
+        clientToString += this.Client[i].id.toLowerCase();
+      }
+      if(this.Client[i].mac != null){
+        clientToString += this.Client[i].mac.toLowerCase();
+      }
+      if(this.Client[i].manufactuer != null){
+        clientToString += this.Client[i].manufactuer.toLowerCase();
+      }
+      if(this.Client[i].mdnsName != null){
+        clientToString += this.Client[i].mdnsName.toLowerCase();
+      }
+      if(this.Client[i].dhcpHostname != null){
+        clientToString += this.Client[i].dhcpHostname.toLowerCase();
+      }
+      if(this.Client[i].ip != null){
+        clientToString += this.Client[i].ip.toLowerCase();
+      }
+      if(this.Client[i].policy != null){
+        clientToString += this.Client[i].policy.toLowerCase();
+      }
+      if(clientToString.includes(event.target.search.value.toLowerCase()) ){
+        this.Client[i].show = true;
+      }
+      else{
+        this.Client[i].show = false;
+      }
+    }
+ }
+
+ 
+
   loadPage(){
     this.apiKey = askForAPI(); 
     this.loadClients();
@@ -66,7 +108,7 @@ export class ClientListComponent implements OnInit {
       var i = 0;
       for(i = 0; i<this.Client.length; i++){
         //this.Client[i].policy = "Allowed";
-       
+        this.Client[i].show = true; 
         this.getManufactuer(this.Client[i].mac, i);
         this.getClientPolicy(this.networkID, this.Client[i].mac, this.apiKey, i);
         this.index += 1;

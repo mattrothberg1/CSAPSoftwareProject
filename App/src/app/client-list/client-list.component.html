@@ -5,10 +5,14 @@
   <div >
     
     <h3 (click)="testAPI1()" class="mb-3 text-center">Client List</h3>
-
+    
     <div class="col-md-12">
-      
+         <form (ngSubmit)="onSubmit($event)" id="search-form_3">
+            <input name="search" value="search" type="text" class="search_3"/>
+            <input type="submit" class="submit_3" value="Search" />
+          </form>
       <table class="table table-bordered">
+        
         <thead>
           <tr>
             <th scope="col">ID</th>
@@ -23,22 +27,27 @@
           </tr>
         </thead>
         <tbody>    
-          <tr *ngFor="let client of Client; let i = index" [class.active]="i == selectedRow">
-            <td>{{client.id}}</td>
-            <td>{{client.mac}}</td>
-            <td>{{client.manufactuer}}</td>
-            <td>{{client.mdnsName}}</td>
-            <td>{{client.dhcpHostname}}</td>
-            <td>{{client.ip}}</td>
-            <td>{{client.vlan}}</td>
-            <td type="policy" id=client.id>
-              {{client.policy}}
-            </td>
-            <td>
-                <button  (click)="allowClient(client.mac, i); finalAllowClient(i)"><img src="assets/checkmark.png" alt="Approve" width="20px"></button>
-                <button (click)="blockClient(client.mac, i); finalBlockClient(i)"><img src="assets/xMark.png" alt="Reject" width="20px"></button>
-            </td>
+          <tr>
+            
           </tr>
+          <ng-container *ngFor="let client of Client; let i = index;">
+            <tr *ngIf="client.show == true">
+              <td>{{client.id}}</td>
+              <td>{{client.mac}}</td>
+              <td>{{client.manufactuer}}</td>
+              <td>{{client.mdnsName}}</td>
+              <td>{{client.dhcpHostname}}</td>
+              <td>{{client.ip}}</td>
+              <td>{{client.vlan}}</td>
+              <td type="policy" id=client.id>
+                {{client.policy}}
+              </td>
+              <td>
+                  <button  (click)="allowClient(client.mac, i); finalAllowClient(i)"><img src="assets/checkmark.png" alt="Approve" width="20px"></button>
+                  <button (click)="blockClient(client.mac, i); finalBlockClient(i)"><img src="assets/xMark.png" alt="Reject" width="20px"></button>
+              </td>
+            </tr>
+              </ng-container>
         </tbody>
       </table>
      
