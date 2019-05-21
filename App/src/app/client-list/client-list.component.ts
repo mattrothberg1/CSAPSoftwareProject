@@ -110,7 +110,7 @@ export class ClientListComponent implements OnInit {
         //this.Client[i].policy = "Allowed";
         this.Client[i].show = true; 
         this.getManufactuer(this.Client[i].mac, i);
-        this.getClientPolicy(this.networkID, this.Client[i].mac, this.apiKey, i);
+        //this.getClientPolicy(this.networkID, this.Client[i].mac, this.apiKey, i);
         this.index += 1;
       }
       console.log(this.Client);
