@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ClientListComponent } from './client-list/client-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

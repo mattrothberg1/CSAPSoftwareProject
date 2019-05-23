@@ -39,7 +39,17 @@ export class ClientListComponent implements OnInit {
   ngOnInit() {
     this.loadPage(); 
   }
-  
+ /*
+  public trackItem (index: number, client: any) {
+    
+      console.log("We're tracking");
+      console.log(client.policy);
+      return getPolicy(this.networkID, client.mac, this.apiKey, index); 
+      return client.policy;
+    
+   
+  }*/
+
   onSubmit(event: any) {
     
     var i = 0;
@@ -92,7 +102,11 @@ export class ClientListComponent implements OnInit {
   }
 
   getClientPolicy(networkID, mac, apiKey, index){
-    this.Client[index].policy = getPolicy(this.networkID, mac, this.apiKey); 
+  
+    console.log("hello" + getPolicy(this.networkID, mac, this.apiKey, index));
+    //the issue is getPolicy is returning before it even executes the rest of it's code, therefore it's returning undefined
+    //this.Client[index].policy = getPolicy(this.networkID, mac, this.apiKey, index); 
+    //this.Client[index].policy = "Temp";
   }
 
   testAPI1(){
@@ -106,11 +120,13 @@ export class ClientListComponent implements OnInit {
     return this.restApi.getClients().subscribe((data: {}) => {
       this.Client = data; 
       var i = 0;
+      
       for(i = 0; i<this.Client.length; i++){
         //this.Client[i].policy = "Allowed";
         this.Client[i].show = true; 
         this.getManufactuer(this.Client[i].mac, i);
-        //this.getClientPolicy(this.networkID, this.Client[i].mac, this.apiKey, i);
+        
+        this.getClientPolicy(this.networkID, this.Client[i].mac, this.apiKey, i);
         this.index += 1;
       }
       console.log(this.Client);
