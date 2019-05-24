@@ -43,8 +43,8 @@
                 {{client.policy}}
               </td>
               <td>
-                  <button  (click)="allowClient(client.mac, i); finalAllowClient(i)"><img src="assets/checkmark.png" alt="Approve" width="20px"></button>
-                  <button (click)="blockClient(client.mac, i); finalBlockClient(i)"><img src="assets/xMark.png" alt="Reject" width="20px"></button>
+                  <button  (click)="allowClient(client.mac, i);"><img src="assets/checkmark.png" alt="Approve" width="20px"></button>
+                  <button (click)="blockClient(client.mac, i); "><img src="assets/xMark.png" alt="Reject" width="20px"></button>
               </td>
             </tr>
               </ng-container>

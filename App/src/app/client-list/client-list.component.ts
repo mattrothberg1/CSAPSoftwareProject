@@ -9,7 +9,7 @@ declare const allowClient: any;
 declare const getPolicy: any; 
 declare const askForAPI: any;
 declare const askForNetworkID: any; 
-
+declare const getGroupPolicy: any; 
 
 
 @Component({
@@ -91,22 +91,35 @@ export class ClientListComponent implements OnInit {
   loadPage(){
     this.apiKey = askForAPI(); 
     this.loadClients();
+    
+   
   }
 
-  blockClient(mac, index){
-    blockClient(this.networkID, mac, this.apiKey);
-
+  async blockClient(mac, index){
+   await blockClient(this.networkID, mac, this.apiKey);
+   this.Client[index].policy = "Blocked";
+   
   }
   allowClient(mac, index){
     allowClient(this.networkID, mac, this.apiKey);
+    this.Client[index].policy = "Allowed";
+    
+  }
+/*
+  async getAllPolicies(client : any){
+    return getGroupPolicy(this.networkID, this.apiKey, client);
+
+    this.Client = getGroupPolicy(this.networkID, this.apiKey, client);
+    console.log("POLICY  " + this.Client[3].policy);
+  }*/
+
+  async getClientPolicy(networkID, mac, apiKey, index){
+    
+   this.Client[index].policy =  await getPolicy(networkID, mac, apiKey, index);
   }
 
-  getClientPolicy(networkID, mac, apiKey, index){
-  
-    console.log("hello" + getPolicy(this.networkID, mac, this.apiKey, index));
-    //the issue is getPolicy is returning before it even executes the rest of it's code, therefore it's returning undefined
-    //this.Client[index].policy = getPolicy(this.networkID, mac, this.apiKey, index); 
-    //this.Client[index].policy = "Temp";
+  getPolicyHelper(networkID, mac, apiKey, index){
+    return getPolicy(networkID, mac, apiKey, index).pipe();
   }
 
   testAPI1(){
@@ -115,7 +128,7 @@ export class ClientListComponent implements OnInit {
     this.Client[this.index] = {id: "k0094kk", mac: "b8:c1:12:01:fb:d0", manufactuer: "Unknown", mdnsName: "Matts-Virus", dhcpHostname: "MattsVirus", ip: "192.168.1.244", vlan: "1", policy: "Blocked"};
   }
   // Get employees list
-  loadClients() {
+   loadClients() {
     this.networkID = askForNetworkID();
     return this.restApi.getClients().subscribe((data: {}) => {
       this.Client = data; 
@@ -126,22 +139,23 @@ export class ClientListComponent implements OnInit {
         this.Client[i].show = true; 
         this.getManufactuer(this.Client[i].mac, i);
         
-        this.getClientPolicy(this.networkID, this.Client[i].mac, this.apiKey, i);
+       this.getClientPolicy(this.networkID, this.Client[i].mac, this.apiKey, i);
+        /*
+        getPolicy(this.networkID, this.Client[i].mac, this.apiKey, i).then(value => {
+          console.log("VALUE " + value);
+        });;*/
+
         this.index += 1;
       }
-      console.log(this.Client);
+       
+     
     })
   }
 
   getManufactuer(mac : String, index : number){
-    let manufactuer = "";
     return this.restApi.checkMac(mac).subscribe((data: {result : {company : any}}) => {
-      console.log("MANU: ");
-      //console.log(data.result.company);
-      this.Client[index].manufactuer = data.result.company;
-      console.log(this.Client[index].manufactuer);
+      this.Client[index].manufactuer = data.result.company;  
     })
-    return manufactuer; 
   }
 
 }

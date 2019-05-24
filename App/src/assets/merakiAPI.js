@@ -1,35 +1,79 @@
-function getPolicy(network_id, clientMAC, apiKey, index){ 
+ function getPolicy(network_id, clientMAC, apiKey, index){ 
 
+  return new Promise(resolve => {
     setTimeout(function() {
-       console.log("HELLO");
+      console.log("HELLO");
 
-    var data = null;
+   var data = null;
 
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-    
-    xhr.addEventListener("readystatechange", function () {
-      if (this.readyState === 4) {
-        console.log(this.response);
-        return this.responseText; 
-        
-      }
-    });
-    
-    xhr.open("GET", "https://api.meraki.com/api/v0/networks/" + network_id + "/clients/" + clientMAC + "/policy?timespan=84000");
-    xhr.setRequestHeader("X-Cisco-Meraki-API-Key", apiKey);
-    xhr.setRequestHeader("cache-control", "no-cache");
-    xhr.setRequestHeader("Postman-Token", "42d71a55-73d8-4b7b-91f2-15ccbf9f3565");
-    
-    xhr.send(data);
-    },index*200);
-  
-  console.log('The loop is done!');
+   var xhr = new XMLHttpRequest();
+   xhr.withCredentials = true;
+   
+   xhr.addEventListener("readystatechange", function () {
+     if (this.readyState === 4) {
+       console.log(this.response);
+       var obj = JSON.parse(this.responseText);
+       resolve(obj.type); 
+       
+     }
+   });
+   
+   xhr.open("GET", "https://api.meraki.com/api/v0/networks/" + network_id + "/clients/" + clientMAC + "/policy?timespan=84000");
+   xhr.setRequestHeader("X-Cisco-Meraki-API-Key", apiKey);
+   xhr.setRequestHeader("cache-control", "no-cache");
+   xhr.setRequestHeader("Postman-Token", "42d71a55-73d8-4b7b-91f2-15ccbf9f3565");
+   
+   xhr.send(data);
+   },index*400);
+ 
+ console.log('The loop is done!');
+
+  });
+
 
 }
 
+function getGroupPolicy(network_id, apiKey, oldClient){ 
+  client = oldClient; 
+  console.log("CLIENTS!!");
+  console.log(client[0].mac);
+  console.log(client[1].mac);
+  console.log(client[2].mac);
+
+for(var i = 0; i < client.length; i++){
+client[i].policy = timeout(network_id, apiKey, client[i].mac, i); 
+}
+console.log('The loop is done!');
+return client; 
+}
+
+function timeout(network_id, apiKey, mac, i){
+ 
+  setTimeout(function() {
+    console.log("MAC: " + mac);
+ var data = null;
+
+ var xhr = new XMLHttpRequest();
+ xhr.withCredentials = true;
+ 
+ xhr.addEventListener("readystatechange", function () {
+   if (this.readyState === 4) {
+     console.log(this.response);
+    return this.responseText;  
+   }
+ });
+ 
+ xhr.open("GET", "https://api.meraki.com/api/v0/networks/" + network_id + "/clients/" + mac + "/policy?timespan=84000");
+ xhr.setRequestHeader("X-Cisco-Meraki-API-Key", apiKey);
+ xhr.setRequestHeader("cache-control", "no-cache");
+ xhr.setRequestHeader("Postman-Token", "42d71a55-73d8-4b7b-91f2-15ccbf9f3565");
+ 
+ xhr.send(data);
+ },i*200);
+}
+
 function getClients(){
-    var data = null;
+    var data = null; 
 
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;
@@ -83,6 +127,7 @@ xhr.send(data);
 }
 
 function blockClient(network_id, clientMAC, apiKey) {
+  return new Promise(resolve => {
     var data = null;
   
     var xhr = new XMLHttpRequest();
@@ -91,6 +136,7 @@ function blockClient(network_id, clientMAC, apiKey) {
     xhr.addEventListener("readystatechange", function () {
       if (this.readyState === 4) {
         console.log(this.responseText);
+        resolve(this.responseText);
       }
     });
     
@@ -107,9 +153,15 @@ function blockClient(network_id, clientMAC, apiKey) {
     xhr.setRequestHeader("cache-control", "no-cache");
     
     xhr.send(data);
+  });
+
+
+ 
   }; 
 
   function allowClient(network_id, clientMAC, apiKey) {
+
+   
     var data = null;
   
     var xhr = new XMLHttpRequest();
