@@ -39,21 +39,10 @@ export class ClientListComponent implements OnInit {
   ngOnInit() {
     this.loadPage(); 
   }
- /*
-  public trackItem (index: number, client: any) {
-    
-      console.log("We're tracking");
-      console.log(client.policy);
-      return getPolicy(this.networkID, client.mac, this.apiKey, index); 
-      return client.policy;
-    
-   
-  }*/
 
+  //this is for the search bar
   onSubmit(event: any) {
-    
     var i = 0;
-    
     for(i = 0; i<this.Client.length; i++){
       var clientToString = "";
       if(this.Client[i].id != null){
@@ -105,13 +94,7 @@ export class ClientListComponent implements OnInit {
     this.Client[index].policy = "Normal";
     
   }
-/*
-  async getAllPolicies(client : any){
-    return getGroupPolicy(this.networkID, this.apiKey, client);
 
-    this.Client = getGroupPolicy(this.networkID, this.apiKey, client);
-    console.log("POLICY  " + this.Client[3].policy);
-  }*/
 
   async getClientPolicy(networkID, mac, apiKey, index){
     
@@ -133,25 +116,16 @@ export class ClientListComponent implements OnInit {
     return this.restApi.getClients().subscribe((data: {}) => {
       this.Client = data; 
       var i = 0;
-      
       for(i = 0; i<this.Client.length; i++){
-        //this.Client[i].policy = "Allowed";
         this.Client[i].show = true; 
         this.getManufactuer(this.Client[i].mac, i);
-        
        this.getClientPolicy(this.networkID, this.Client[i].mac, this.apiKey, i);
-        /*
-        getPolicy(this.networkID, this.Client[i].mac, this.apiKey, i).then(value => {
-          console.log("VALUE " + value);
-        });;*/
-
         this.index += 1;
       }
-       
-     
     })
   }
 
+  //we are passing in the client mac address to an open API and getting back the manufaturer from the OUI
   getManufactuer(mac : String, index : number){
     return this.restApi.checkMac(mac).subscribe((data: {result : {company : any}}) => {
       this.Client[index].manufactuer = data.result.company;  
