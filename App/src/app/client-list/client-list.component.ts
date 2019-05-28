@@ -102,7 +102,7 @@ export class ClientListComponent implements OnInit {
   }
   allowClient(mac, index){
     allowClient(this.networkID, mac, this.apiKey);
-    this.Client[index].policy = "Allowed";
+    this.Client[index].policy = "Normal";
     
   }
 /*
