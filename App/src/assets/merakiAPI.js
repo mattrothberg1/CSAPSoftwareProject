@@ -24,7 +24,7 @@
    xhr.setRequestHeader("Postman-Token", "42d71a55-73d8-4b7b-91f2-15ccbf9f3565");
    
    xhr.send(data);
-   },index*400);
+   },index*200);
  
  console.log('The loop is done!');
 
