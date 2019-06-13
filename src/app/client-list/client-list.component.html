@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html ng-app="myApp">
 <div class="container custom-container-2">
@@ -8,22 +10,22 @@
     
     <div class="col-md-12">
          <form (ngSubmit)="onSubmit($event)" id="search-form_3">
-            <input name="search" value="search" type="text" class="search_3"/>
+            <input placeholder="Type in keyword..." name="search" type="text" class="search_3"/>
             <input type="submit" class="submit_3" value="Search" />
           </form>
-      <table class="bottomBorder">
+      <table class="bottomBorder"> 
         
         <thead>
           <tr>
             <th scope="col">ID</th>
             <th scope="col">MAC</th>
             <th scope="col">Manufacturer</th>
-            <th scope="col">mdnsName</th>
-            <th scope="col">dhcpHostname</th>
-            <th scope="col">ip</th>
-            <th scope="col">vlan</th>
+            <th scope="col">mDNS Name</th>
+            <th scope="col">DHCP Hostname</th>
+            <th scope="col">IP</th>
+            <th scope="col">Vlan</th>
             <th scope="col">Policy</th>
-            <th scope="col">actions</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>    
@@ -57,4 +59,6 @@
   </body>
 </div>
 </html>
+
+
 
