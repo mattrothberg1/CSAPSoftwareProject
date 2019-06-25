@@ -9,4 +9,5 @@ export class Clients {
     policy: string; 
     manufacturer: string; 
     show: boolean;
+    networkID: string; 
 }
