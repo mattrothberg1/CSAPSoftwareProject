@@ -69,10 +69,7 @@ xhr.send(data);
 //----------------------------------------------------------------------------------------------
  // get Policy List grabs the list of all the policies from Meraki with the specific networdID and API Key 
  //------------------------------------------------------------------
- function getPolicyList (apiKey, networkID, i){
-  return new Promise(resolve => {
-  setTimeout(function() {
-  
+ function getPolicyList (networkID, apiKey, i){
   var data = null;
 
 var xhr = new XMLHttpRequest();
@@ -80,26 +77,32 @@ xhr.withCredentials = true;
 
 xhr.addEventListener("readystatechange", function () {
   if (this.readyState === 4) {
-    console.log("TEST7: " + this.responseText);
-    resolve(this.responseText); 
+    var obj = JSON.parse(this.responseText);
+    var text = "";
+    for(var x = 0; x < obj.length; x++){
+      text += "Group Policy ID (copy this into text box): ";
+      text += obj[x].groupPolicyId; 
+      text += "\nGroup Policy Name: "; 
+      text += obj[x].name;
+      text +="\n---------------\n"; 
+
+    }
+    alert(text);
   }
-  
 });
-xhr.open("GET", "https://api.meraki.com/api/v0/networks/" + networkID + "/groupPolicies");
+
+xhr.open("GET", "https://api.meraki.com/api/v0/networks/"+networkID+"/groupPolicies");
 xhr.setRequestHeader("X-Cisco-Meraki-API-Key", apiKey);
-xhr.setRequestHeader("Content-Type", "application/json");
 xhr.setRequestHeader("User-Agent", "PostmanRuntime/7.15.0");
-xhr.setRequestHeader("Accept", "*/*"); 
+xhr.setRequestHeader("Accept", "*/*");
 xhr.setRequestHeader("Cache-Control", "no-cache");
-xhr.setRequestHeader("Postman-Token", "577e582c-87c0-4881-b144-280fd233a251,8261c9cc-2f78-4a96-96ac-7ac55b8b9b94");
+xhr.setRequestHeader("Postman-Token", "3600c45b-53bf-4d26-aedd-2cf3e7925b38,3e4cfac0-0640-4822-9db6-208aa57f44a1");
 xhr.setRequestHeader("accept-encoding", "gzip, deflate");
-xhr.setRequestHeader("referer", "https://api.meraki.com/api/v0/networks/" + networkID + "/groupPolicies");
+xhr.setRequestHeader("referer", "https://api.meraki.com/api/v0/networks/"+networkID+"/groupPolicies");
 xhr.setRequestHeader("Connection", "keep-alive");
 xhr.setRequestHeader("cache-control", "no-cache");
 
 xhr.send(data);
-  },i*200);
-});
 }
  //------------------------------------------------------------------
 
@@ -129,7 +132,7 @@ xhr.send(data);
    xhr.setRequestHeader("Postman-Token", "42d71a55-73d8-4b7b-91f2-15ccbf9f3565");
    
    xhr.send(data);
-   },index*400);
+   },index*500);
  
    console.log('got the policy for client mac address of: ' + clientMAC);
 
@@ -236,7 +239,7 @@ function timeout(network_id, apiKey, mac, i){
  xhr.setRequestHeader("Postman-Token", "42d71a55-73d8-4b7b-91f2-15ccbf9f3565");
  
  xhr.send(data);
- },i*200);
+ },i*500);
 }
 
 

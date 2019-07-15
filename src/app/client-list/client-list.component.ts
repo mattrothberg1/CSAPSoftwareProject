@@ -30,7 +30,12 @@ declare const policyBox: any;
   
 })
 
+
+
 export class ClientListComponent implements OnInit {
+
+
+  
   Client: any = [];
   
   selectedRow: string;
@@ -50,9 +55,17 @@ export class ClientListComponent implements OnInit {
     await this.loadPage(); 
   }
   
+  policyOptions(networkid){
+   // alert(networkid);
+  
+    getPolicyList(networkid, this.apiKey, 1);
+  }
+
   changePolicy(event: any, mac, networkID){
     var ID = event.target.Policy.value.toLowerCase(); 
     console.log(setPolicy(ID, mac, networkID, this.apiKey));
+    this.getClientPolicy(networkID, mac, this.apiKey, 1);
+
   }
   //this is for the search bar
   onSubmit(event: any) {

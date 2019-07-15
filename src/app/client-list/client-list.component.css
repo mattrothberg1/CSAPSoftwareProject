@@ -123,6 +123,17 @@ table {
     -moz-box-shadow: -1px -1px 2px rgba(0,0,0,.3), 0 0 1px rgba(0,0,0,.2);
     }
     
+    .policybutton{
+        background-color: #555555; /* Green */
+        border: none;
+        color: white;
+        
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+
     /*** USER IS FOCUSED ON TEXT BOX ***/
     .search_3:focus{
     outline: none;
