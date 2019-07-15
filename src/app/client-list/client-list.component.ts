@@ -61,10 +61,12 @@ export class ClientListComponent implements OnInit {
     getPolicyList(networkid, this.apiKey, 1);
   }
 
-  changePolicy(event: any, mac, networkID){
+  changePolicy(event: any, mac, networkID, index){
     var ID = event.target.Policy.value.toLowerCase(); 
     console.log(setPolicy(ID, mac, networkID, this.apiKey));
-    this.getClientPolicy(networkID, mac, this.apiKey, 1);
+    this.getClientPolicy(networkID, mac, this.apiKey, index);
+    var obj = this.Client; 
+    this.Client = obj;
 
   }
   //this is for the search bar

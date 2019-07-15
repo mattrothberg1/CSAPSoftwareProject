@@ -50,7 +50,7 @@
                   <button (click)="allowClient(client.mac, i);"><img src="assets/checkmark.png" alt="Approve" width="20px"></button>
                   <button (click)="blockClient(client.mac, i); "><img src="assets/xMark.png" alt="Reject" width="20px"></button>
                   <button  (click)="policyOptions(client.networkID);" ><img src="assets/group.png" alt="Group Policy" width="20px"></button>
-                  <form (ngSubmit)="changePolicy($event, client.mac, client.networkID)" id="search-form_4">
+                  <form (ngSubmit)="changePolicy($event, client.mac, client.networkID, i)" id="search-form_4">
                       <p> -------------------------------- <p>
                       <input name="Policy" placeholder= "Enter Policy #" type="text" class="search_4"/>
                       <input type="submit" class="submit_4" value="Submit" />

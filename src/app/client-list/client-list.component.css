@@ -1,6 +1,9 @@
 table {
+    
+
     border-collapse: collapse;
     width: 100%;
+   
     }
     
     tr:hover {background-color:#f5f5f5;}
@@ -21,6 +24,8 @@ table {
     }
     
     
+    
+
     table.bottomBorder th, td {
     border-collapse: collapse;
     }
@@ -61,6 +66,7 @@ table {
     width: 375px;
     background: white;
     margin-left: -187.5px;
+    margin-right: -187.5px;
     text-align: center;
     box-shadow: 0px 0px 2px 1px black;
     z-index: 100;
