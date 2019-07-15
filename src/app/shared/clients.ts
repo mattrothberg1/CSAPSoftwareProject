@@ -9,4 +9,11 @@ export class Clients {
     policy: string; 
     manufacturer: string; 
     show: boolean;
+    networkID: string; 
+    policies : Policies;
+}
+
+export class Policies {
+    groupPolicyId: string;
+    name: string;
 }

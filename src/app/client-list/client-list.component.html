@@ -3,14 +3,15 @@
 <div class="container custom-container-2">
   <body ng-controller="MainCtrl"> 
   <div >
-    
-    <h3 (click)="testAPI1()" class="mb-3 text-center">Client List</h3>
+
     
     <div class="col-md-12">
          <form (ngSubmit)="onSubmit($event)" id="search-form_3">
-            <input name="search" value="search" type="text" class="search_3"/>
+            <input name="search" placeholder= "Type in anything..." type="text" class="search_3"/>
             <input type="submit" class="submit_3" value="Search" />
           </form>
+
+
       <table class="bottomBorder">
         
         <thead>
@@ -18,12 +19,12 @@
             <th scope="col">ID</th>
             <th scope="col">MAC</th>
             <th scope="col">Manufacturer</th>
-            <th scope="col">mdnsName</th>
-            <th scope="col">dhcpHostname</th>
-            <th scope="col">ip</th>
-            <th scope="col">vlan</th>
+            <th scope="col">MDNS Name</th>
+            <th scope="col">DHCP Hostname</th>
+            <th scope="col">IP</th>
+            <th scope="col">Vlan</th>
             <th scope="col">Policy</th>
-            <th scope="col">actions</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>    
@@ -43,8 +44,14 @@
                 {{client.policy}}
               </td>
               <td>
-                  <button  (click)="allowClient(client.mac, i);"><img src="assets/checkmark.png" alt="Approve" width="20px"></button>
+                  <button (click)="allowClient(client.mac, i);"><img src="assets/checkmark.png" alt="Approve" width="20px"></button>
                   <button (click)="blockClient(client.mac, i); "><img src="assets/xMark.png" alt="Reject" width="20px"></button>
+                  <form (ngSubmit)="changePolicy($event, client.mac, client.networkID)" id="search-form_4">
+                      <br> -------------------------------- <br>
+                      <input name="Policy" placeholder= "Enter Policy #" type="text" class="search_4"/>
+                      <input type="submit" class="submit_4" value="Submit" />
+                    </form>
+
               </td>
             </tr>
               </ng-container>
@@ -57,4 +64,6 @@
   </body>
 </div>
 </html>
+
+
 

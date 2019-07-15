@@ -1,0 +1,62 @@
+
+
+<!DOCTYPE html>
+<html ng-app="myApp">
+<div class="container custom-container-2">
+  <body ng-controller="MainCtrl"> 
+  <div >
+    
+    <h3 (click)="testAPI1()" class="mb-3 text-center">Client List</h3>
+    
+    <div class="col-md-12">
+         <form (ngSubmit)="onSubmit($event)" id="search-form_3">
+            <input placeholder="Type in keyword..." type="text" class="search_3"/>
+            <input type="submit" class="submit_3"   />
+          </form>
+      <table class="bottomBorder"> 
+        
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">MAC</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">mDNS Name</th>
+            <th scope="col">DHCP Hostname</th>
+            <th scope="col">IP</th>
+            <th scope="col">Vlan</th>
+            <th scope="col">Policy</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>    
+          <tr>
+            
+          </tr>
+          <ng-container *ngFor="let client of Client; let i = index;">
+            <tr *ngIf="client.show == true">
+              <td>{{client.id}}</td>
+              <td>{{client.mac}}</td>
+              <td>{{client.manufactuer}}</td>
+              <td>{{client.mdnsName}}</td>
+              <td>{{client.dhcpHostname}}</td>
+              <td>{{client.ip}}</td>
+              <td>{{client.vlan}}</td>
+              <td>
+                {{client.policy}}
+              </td>
+              <td>
+                  <button  (click)="allowClient(client.mac, i);"><img src="assets/checkmark.png" alt="Approve" width="20px"></button>
+                  <button (click)="blockClient(client.mac, i); "><img src="assets/xMark.png" alt="Reject" width="20px"></button>
+              </td>
+            </tr>
+              </ng-container>
+        </tbody>
+      </table>
+     
+    </div>
+
+  </div>
+  </body>
+</div>
+</html>
+

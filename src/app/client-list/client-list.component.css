@@ -21,8 +21,6 @@ table {
     }
     
     
-    
-    
     table.bottomBorder th, td {
     border-collapse: collapse;
     }
@@ -47,6 +45,37 @@ table {
     }
 
 /* search box*/
+
+
+.hidden{
+    display:none;
+}
+.show{
+    display:block;
+}
+
+#modal-container {
+    position:  fixed;
+    top: 300px;
+    left: 50%;
+    width: 375px;
+    background: white;
+    margin-left: -187.5px;
+    text-align: center;
+    box-shadow: 0px 0px 2px 1px black;
+    z-index: 100;
+}
+
+#overlay {
+    position: absolute;
+    top: 0px;
+    left:  0px;
+    z-index:  99;
+    background:  rgba(0,0,0,0.8);
+    width:  100%;
+    height: 100%;
+}
+
 
 #search-form_3 {
     background: #e1e1e1; /* Fallback color for non-css3 browsers */
@@ -116,7 +145,7 @@ table {
     float: right;
     font: 16px 'Raleway', sans-serif;
     font-weight: bold;
-    height: 30px;
+    height: 33px;
     margin: 4px 4px 0;
     text-shadow: 0 -1px 0 rgba(0,0,0,.3);
     width: 84px;
