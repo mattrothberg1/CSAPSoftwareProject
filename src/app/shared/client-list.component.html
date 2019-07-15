@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<div class="container custom-container-2">
+  <body ng-controller="MainCtrl"> 
+  <div >
+
+    
+    <div class="col-md-12">
+         <form (ngSubmit)="onSubmit($event)" id="search-form_3">
+            <input name="search" placeholder= "Type in anything..." type="text" class="search_3"/>
+            <input type="submit" class="submit_3" value="Search" />
+          </form>
+
+
+      <table class="bottomBorder">
+        
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">MAC</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">MDNS Name</th>
+            <th scope="col">DHCP Hostname</th>
+            <th scope="col">IP</th>
+            <th scope="col">Vlan</th>
+            <th scope="col">Policy</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>    
+          <tr>
+            
+          </tr>
+          <ng-container *ngFor="let client of Client; let i = index;">
+            <tr *ngIf="client.show == true">
+              <td>{{client.id}}</td>
+              <td>{{client.mac}}</td>
+              <td>{{client.manufactuer}}</td>
+              <td>{{client.mdnsName}}</td>
+              <td>{{client.dhcpHostname}}</td>
+              <td>{{client.ip}}</td>
+              <td>{{client.vlan}}</td>
+              <td>
+                {{client.policy}}
+              </td>
+              <td>
+                  <button (click)="allowClient(client.mac, i);"><img src="assets/checkmark.png" alt="Approve" width="20px"></button>
+                  <button (click)="blockClient(client.mac, i); "><img src="assets/xMark.png" alt="Reject" width="20px"></button>
+                  <form (ngSubmit)="changePolicy($event, client.mac, client.networkID)" id="search-form_4">
+                      <br> -------------------------------- <br>
+                      <input name="Policy" placeholder= "Enter Policy #" type="text" class="search_4"/>
+                      <input type="submit" class="submit_4" value="Submit" />
+                    </form>
+
+              </td>
+            </tr>
+              </ng-container>
+        </tbody>
+      </table>
+     
+    </div>
+
+  </div>
+  </body>
+</div>
+</html>
+
+
+
