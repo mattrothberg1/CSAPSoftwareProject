@@ -21,8 +21,6 @@ table {
     }
     
     
-    
-    
     table.bottomBorder th, td {
     border-collapse: collapse;
     }
@@ -39,7 +37,7 @@ table {
     
     
     button {
-    background-color: gray;
+    background-color: Transparent;
     background-repeat:no-repeat;
     border: none;
     cursor:pointer;
@@ -48,8 +46,38 @@ table {
 
 /* search box*/
 
-#search-form_3 {
 
+.hidden{
+    display:none;
+}
+.show{
+    display:block;
+}
+
+#modal-container {
+    position:  fixed;
+    top: 300px;
+    left: 50%;
+    width: 375px;
+    background: white;
+    margin-left: -187.5px;
+    text-align: center;
+    box-shadow: 0px 0px 2px 1px black;
+    z-index: 100;
+}
+
+#overlay {
+    position: absolute;
+    top: 0px;
+    left:  0px;
+    z-index:  99;
+    background:  rgba(0,0,0,0.8);
+    width:  100%;
+    height: 100%;
+}
+
+
+#search-form_3 {
     background: #e1e1e1; /* Fallback color for non-css3 browsers */
     width: 365px;
     margin: 10px auto;
@@ -72,7 +100,6 @@ table {
     /*** TEXT BOX ***/
     .search_3{
     background: #fafafa; /* Fallback color for non-css3 browsers */
-
     
     /* Gradients */
     background: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(250,250,250)), color-stop(1, rgb(230,230,230)));
@@ -84,31 +111,26 @@ table {
     margin: 4px;
     padding: 5px;
     width: 250px;
-
     
     /* Rounded Corners */
     border-radius: 17px;
     -webkit-border-radius: 17px;
     -moz-border-radius: 17px;
-
     
     /* Shadows */
     box-shadow: -1px -1px 2px rgba(0,0,0,.3), 0 0 1px rgba(0,0,0,.2);
     -webkit-box-shadow: -1px -1px 2px rgba(0,0,0,.3), 0 0 1px rgba(0,0,0,.2);
     -moz-box-shadow: -1px -1px 2px rgba(0,0,0,.3), 0 0 1px rgba(0,0,0,.2);
-
     }
     
     /*** USER IS FOCUSED ON TEXT BOX ***/
     .search_3:focus{
     outline: none;
     background: #fff; /* Fallback color for non-css3 browsers */
- 
     
     /* Gradients */
     background: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(255,255,255)), color-stop(1, rgb(235,235,235)));
     background: -moz-linear-gradient( center top, rgb(255,255,255) 0%, rgb(235,235,235) 100%);
- 
     }
     
     /*** SEARCH BUTTON ***/
@@ -123,7 +145,7 @@ table {
     float: right;
     font: 16px 'Raleway', sans-serif;
     font-weight: bold;
-    height: 34px;
+    height: 33px;
     margin: 4px 4px 0;
     text-shadow: 0 -1px 0 rgba(0,0,0,.3);
     width: 84px;
@@ -142,7 +164,6 @@ table {
     /*** SEARCH BUTTON HOVER ***/
     .submit_3:hover {
     background: #4ea923; /* Fallback color for non-css3 browsers */
-
     
     /* Gradients */
     background: -webkit-gradient( linear, left top, left bottom, color-stop(0, rgb(89,222,27)), color-stop(0.15, rgb(83,179,38)), color-stop(0.8, rgb(66,143,27)), color-stop(1, rgb(54,120,22)));
@@ -155,6 +176,5 @@ table {
     background: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(89,222,27)), color-stop(0.15, rgb(83,179,38)), color-stop(0.8, rgb(66,143,27)), color-stop(1, rgb(54,120,22)));
     background: -moz-linear-gradient( center bottom, rgb(89,222,27) 0%, rgb(83,179,38) 15%, rgb(66,143,27) 80%, rgb(54,120,22) 100%);
     }
-
 
     
