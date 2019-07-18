@@ -1,3 +1,7 @@
+ 
+//----------------------------------------------------------------------------------------------
+ // Gets the name of a group policy by passing in a group policy ID 
+ //------------------------------------------------------------------
  function getNameofPolicy(groupPolicyId, network_id, apiKey){
   
   return new Promise(resolve => {
@@ -11,10 +15,8 @@
         console.log(this.responseText);
         var obj = JSON.parse(this.responseText);
         for(var x = 0; x < obj.length; x++){
-          console.log("PRINTING POLICY NUMBER: " + x + " AND THE INFO IS: " + obj[x].groupPolicyId + " AND WE ARE SEARCHING FOR: " + groupPolicyId);
-          if(obj[x].groupPolicyId === groupPolicyId){
-            console.log("GROUP POLICY FOUND IS: " + obj[x].name);
-            resolve(obj[x].name); 
+               if(obj[x].groupPolicyId === groupPolicyId){
+                      resolve(obj[x].name); 
           }
         }
         
@@ -36,6 +38,11 @@
   });
  }
  //----------------------------------------------------------------------------------------------
+
+
+//----------------------------------------------------------------------------------------------
+ // Set the policy for a client to a specific group policy 
+ //------------------------------------------------------------------
 function setPolicy(groupPolicyId, client_mac, network_id, apiKey){
 
     var data = null;
@@ -45,8 +52,7 @@ xhr.withCredentials = true;
 
 xhr.addEventListener("readystatechange", function () {
   if (this.readyState === 4) {
-    console.log(this.responseText);
-  }
+    }
 });
 
 xhr.open("PUT", "https://api.meraki.com/api/v0/networks/" + network_id + "/clients/" + client_mac + "/policy?devicePolicy=group&groupPolicyId=" + groupPolicyId + "&timespan=2592000");
@@ -107,12 +113,13 @@ xhr.send(data);
  //------------------------------------------------------------------
 
 
+//----------------------------------------------------------------------------------------------
+ // Gets the policy for a client. Function staggers the api calls to avoid hitting the Meraki rate limit
+ //------------------------------------------------------------------
  async function getPolicy(network_id, clientMAC, apiKey, index){ 
  
   return new Promise(resolve => {
     setTimeout(function() {
-      console.log("HELLO");
-
    var data = null;
 
    var xhr = new XMLHttpRequest();
@@ -134,8 +141,6 @@ xhr.send(data);
    xhr.send(data);
    },index*500);
  
-   console.log('got the policy for client mac address of: ' + clientMAC);
-
   });
 
 
@@ -174,6 +179,9 @@ function getClients(deviceID, apiKey){
   
 }
 
+//----------------------------------------------------------------------------------------------
+ // Gets the list of all Meraki devices on a network 
+ //------------------------------------------------------------------
 function getDevices(network_id, apiKey){
   return new Promise(resolve => {
     var data = null;
@@ -205,22 +213,17 @@ function getDevices(network_id, apiKey){
 
 function getGroupPolicy(network_id, apiKey, oldClient){ 
   client = oldClient; 
-  console.log("CLIENTS!!");
-  console.log(client[0].mac);
-  console.log(client[1].mac);
-  console.log(client[2].mac);
-
 for(var i = 0; i < client.length; i++){
 client[i].policy = timeout(network_id, apiKey, client[i].mac, i); 
 }
-console.log('The loop is done!');
+
 return client; 
 }
 
 function timeout(network_id, apiKey, mac, i){
  
   setTimeout(function() {
-    console.log("MAC: " + mac);
+ 
  var data = null;
 
  var xhr = new XMLHttpRequest();
@@ -228,7 +231,7 @@ function timeout(network_id, apiKey, mac, i){
  
  xhr.addEventListener("readystatechange", function () {
    if (this.readyState === 4) {
-     console.log(this.response);
+    
     return this.responseText;  
    }
  });
@@ -244,6 +247,9 @@ function timeout(network_id, apiKey, mac, i){
 
 
 
+//----------------------------------------------------------------------------------------------
+ // Sets the policy for a client to "Blocked" 
+ //------------------------------------------------------------------
 function blockClient(network_id, clientMAC, apiKey) {
   return new Promise(resolve => {
     var data = null;
@@ -276,18 +282,18 @@ function blockClient(network_id, clientMAC, apiKey) {
 
  
   }; 
-
+//----------------------------------------------------------------------------------------------
+ // Sets the policy for a client to "Allowed" 
+ //------------------------------------------------------------------
   function allowClient(network_id, clientMAC, apiKey) {
-
-   
     var data = null;
-  
+
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     
     xhr.addEventListener("readystatechange", function () {
       if (this.readyState === 4) {
-        console.log(this.responseText);
+      
       }
     });
     
@@ -305,7 +311,9 @@ function blockClient(network_id, clientMAC, apiKey) {
     
     xhr.send(data);
   }; 
-
+//----------------------------------------------------------------------------------------------
+ // Asks user to enter their API key before running the program 
+ //------------------------------------------------------------------
   function askForAPI(){
     var apiKey  = prompt("Please enter your Meraki API Key", "611a8ceeedb0c36716a5125c46cd7f3ba760d465");
     while(apiKey == null || apiKey == ""){
@@ -314,24 +322,11 @@ function blockClient(network_id, clientMAC, apiKey) {
     return apiKey; 
   }
 
-
-function policyBox(){
-var policybox = prompt("HeLLO");
-return policybox;
-}
-
-
-
-  function askForNetworkID(){
-    var networkID  = prompt("Please enter your Meraki Network ID", "L_647955396387940893");
-    while(networkID == null || networkID == ""){
-      var networkID  = prompt("Please enter your Meraki Network ID", "L_647955396387940893");
-    }
-    return networkID; 
-  }
-
+//----------------------------------------------------------------------------------------------
+ // Returns the Networks associated with a specific organization 
+ //------------------------------------------------------------------
 function getNetworkIds(apiKey, orgID){
-  console.log("Asking for network ID");
+ 
   return new Promise(resolve => {
           var data = null;
 
@@ -340,7 +335,7 @@ function getNetworkIds(apiKey, orgID){
 
       xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-          console.log(this.responseText);
+          
           var response = JSON.parse(this.responseText);
           resolve(response);
         }
@@ -360,7 +355,9 @@ function getNetworkIds(apiKey, orgID){
       xhr.send(data);
   });
 }
-
+//----------------------------------------------------------------------------------------------
+ // Gets the organizations associated with a specific api key 
+ //------------------------------------------------------------------
   function getorgs(apiKey){
  
     return new Promise(resolve => {
@@ -370,8 +367,7 @@ function getNetworkIds(apiKey, orgID){
       xhr.withCredentials = true;
 
       xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === 4) {
-          console.log(this.responseText);   
+        if (this.readyState === 4) {  
            var response = JSON.parse(this.responseText);
           resolve(response);
         }
