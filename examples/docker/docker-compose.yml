@@ -1,0 +1,17 @@
+# Docker-Compose example.
+#
+# AUTHOR(s): Zaphod Beeblebrox <zaphodbe@cisco.com>
+# CONTRIBUTOR(s): Arthur Dent <arthurde@cisco.com>
+#                 Ford Prefect <fordpref@cisco.com>
+#                 Slartibartfast <slartiba@cisco.com>
+
+
+version: '3'
+
+# Your service, network, and volume deffinitions
+services:
+  app:
+    build:
+      context: .
+    labels:
+      com.cisco.author: "Zaphod Beeblebrox <zaphodbe@cisco.com>"
